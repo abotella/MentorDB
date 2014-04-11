@@ -24,4 +24,6 @@ public class Application extends Controller {
     public static Result page1() {
       return ok(Page1.render("Welcome to Page 1."));
     }
+    //testing sync
+    
 }
