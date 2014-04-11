@@ -15,6 +15,7 @@ public class Application extends Controller {
     public static Result index() {
       return ok(Index.render("Testing: This is the homepage."));
     }
+
     
     /**
      * Returns page1.
@@ -24,4 +25,5 @@ public class Application extends Controller {
       return ok(Page1.render("Welcome to Page 1."));
     }
     
+
 }
