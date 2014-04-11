@@ -15,6 +15,7 @@ public class Application extends Controller {
     public static Result index() {
       return ok(Index.render("Testing: This is the homepage."));
     }
+<<<<<<< HEAD
     
     /**
      * Returns page1.
@@ -24,4 +25,7 @@ public class Application extends Controller {
       return ok(Page1.render("Welcome to Page 1."));
     }
     
+=======
+    //is this making a change?
+>>>>>>> 48d7871577235ad7a2f3608f646a81e6563bc138
 }
