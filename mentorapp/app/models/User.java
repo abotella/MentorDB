@@ -18,18 +18,18 @@ public class User extends Model {
 
 	@Id
 	public Long id;
-
-	public Long ean;
+	
+	public Integer ean;
 	public String name;
 	public String password;
-	/**
+	
 	public String currentEmployer;
 	public String currentTitle;
 	public String position;
 	public String workExperience;
 	public boolean isMentor;
 	public boolean isMentee;
-	*/
+	
 	/**
 	 * Create a new user
 	 * 
@@ -38,8 +38,7 @@ public class User extends Model {
 	 * @param aPassword
 	 *            user password
 	 */
-	public User(Long anEan, String aName, String aPassword) {
-		ean = anEan;
+	public User(String aName, String aPassword) {
 		name = aName;
 		password = aPassword;
 	}
@@ -69,18 +68,18 @@ public class User extends Model {
 	private static Set<User> users;
 	static {
 		users = new HashSet<User>();
-		users.add(new User(1111111111111L, "Ryan Honrado", "password123"));
-		users.add(new User(2222222222222L, "Michael Daniels", "password123"));
-		users.add(new User(3333333333333L, "Charlemagne Doles", "password123"));
+		users.add(new User("Ryan Honrado", "password123"));
+		users.add(new User("Michael Daniels", "password123"));
+		users.add(new User("Charlemagne Doles", "password123"));
 	}
 
 	public static Set<User> findAll() {
 		return new HashSet<User>(users);
 	}
-
-	public static User findByEan(Long ean) {
+	
+	public static User findByEan(Integer ean) {
 		for (User candidate : users) {
-			if (candidate.ean.equals(ean)) {
+			if (candidate.ean == (ean)) {
 				return candidate;
 			}
 		}
@@ -101,7 +100,8 @@ public class User extends Model {
 		return users.remove(user);
 	}
 
-	public static void add(User user) {
+	public static void add(User user, Integer num) {
+		user.ean = num;
 		users.add(user);
 	}
 }
