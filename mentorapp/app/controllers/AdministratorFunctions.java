@@ -1,7 +1,12 @@
 package controllers;
+<<<<<<< HEAD
 import play.mvc.Controller;
 import models.*;
 public class AdministratorFunctions extends Controller
+=======
+import models.*;
+public class AdministratorFunctions
+>>>>>>> 190cf526c27da1f9993e0329f9132eb53a0e5115
 {
 	/**
 	 * Validates the user's login credentials
@@ -18,10 +23,10 @@ public class AdministratorFunctions extends Controller
 	 * Responds to a message that was sent to the administrator by a user
 	 * @param message the message that will be sent to the user
 	 */
-	public void respond(Message message)
-	{
+	//public void respond(Message message)
+	//{
 		
-	}
+	//}
 	
 	/**
 	 * Searches for a user profile based on a username
