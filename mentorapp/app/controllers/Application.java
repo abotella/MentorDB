@@ -24,6 +24,27 @@ public class Application extends Controller {
     public static Result page1() {
       return ok(Page1.render("Welcome to Page 1. We are awesome!!!! One step closer baby!!!"));
     }
+    
+    public static Result homePage(){
+    	
+    	return ok(homePage.render("this is the home page"));
+    }
+    
+    public static Result userSetup(){
+    	return ok(userSetup.render("user setup page"));
+    }
+    
+    public static Result searchCriteria(){
+    	return ok(searchCriteria.render("this is search criteria page"));
+    }
+    
+    public static Result searchResults(){
+    	return ok(searchResults.render("search result "));
+    	
+    }
+    public static Result viewUserProfile(){
+    	return ok(viewUserProfile.render("view user profile page"));
+    }
     //testing sync
     //testing again
 }

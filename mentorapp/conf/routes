@@ -8,7 +8,7 @@ GET		/page1						controllers.Application.page1()
 GET		/homePage					controllers.Application.homePage()
 GET		/userSetup					controllers.Application.userSetup()
 GET		/serchCriteria				controllers.Application.searchCriteria()
-GET		/searchResults				controllers.Application.searchResult()
+GET		/searchResults				controllers.Application.searchResults()
 GET 	/viewUserProfile			controllers.Application.viewUserProfile()
 
 # Map static resources from the /public folder to the /assets URL path
