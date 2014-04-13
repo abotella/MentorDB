@@ -1,6 +1,7 @@
 package controllers;
 
 import play.mvc.Controller;
+import play.*;
 import play.data.Form;
 import play.mvc.Result;
 import views.html.*;
@@ -21,7 +22,7 @@ public class Application extends Controller {
      * @return The Page1.
      */
     public static Result page1() {
-      return ok(page1.render("Welcome to Page 1. We are awesome!!!! One step closer baby!!!"));
+      return ok(Page1.render("Welcome to Page 1. We are awesome!!!! One step closer baby!!!"));
     }
     //testing sync
     //testing again

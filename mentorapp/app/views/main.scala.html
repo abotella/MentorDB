@@ -34,6 +34,12 @@
         <ul class="nav navbar-nav">
           <li class="@("active".when(page == "Home"))"><a href="@routes.Application.index()">Home</a></li>
           <li class="@("active".when(page == "Page1"))"><a href="@routes.Application.page1()">Page1</a></li>
+          <li class="@("active".when(page == "homePage"))"><a href="@routes.Application.homePage()">Home</a></li>
+          <li class="@("active".when(page == "userSetup"))"><a href="@routes.Application.userSetup()">userSetup</a></li>
+          <li class="@("active".when(page == "searchCriteria"))"><a href="@routes.Application.searchCriteria()">searchCriteria</a></li>
+          <li class="@("active".when(page == "searchResult"))"><a href="@routes.Application.searchResult()">searchResult</a></li>
+          <li class="@("active".when(page == "viewUserProfile"))"><a href="@routes.Application.viewUserResults()">view user</a></li>
+         
         </ul>
       </div>
     </div>
