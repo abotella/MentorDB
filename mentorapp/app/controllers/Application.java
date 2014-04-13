@@ -1,5 +1,6 @@
 package controllers;
 
+import models.User;
 import play.mvc.Controller;
 import play.*;
 import play.data.Form;
@@ -7,7 +8,9 @@ import play.mvc.Result;
 import views.html.*;
 
 public class Application extends Controller {
-
+	private static int IDCOUNTER = 0;
+	private static final Form<User> userForm = Form.form(User.class);
+	
 	/**
      * Returns the home page. 
      * @return The resulting home page. 
@@ -42,6 +45,17 @@ public class Application extends Controller {
     }
     public static Result viewUserProfile(){
     	return ok(viewUserProfile.render("view user profile page"));
+    }
+    
+    public static Result findUser(String aName){
+    	return TODO;
+    }
+    
+    public static Result save(){
+    	Form<User> boundForm = userForm.bindFromRequest();
+    	User product = boundForm.get();
+    	User.add(product, IDCOUNTER++);
+    	return ok(String.format("Saved product %s", product));
     }
     //testing sync
     //testing again   

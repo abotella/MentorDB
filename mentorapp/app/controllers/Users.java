@@ -17,11 +17,12 @@ public class Users extends Controller {
 		return ok(list.render(users));
 	}
 
+	
 	public static Result save() {
 		return ok();
 	}
 
-	public static Result show(Long ean) {
+	public static Result show(Integer ean) {
 		return ok();
 	}
 
