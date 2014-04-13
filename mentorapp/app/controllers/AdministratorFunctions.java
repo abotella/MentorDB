@@ -10,7 +10,7 @@ public class AdministratorFunctions
 	 */
 	public boolean validate(String userN, String pass)
 	{
-		return false;
+		return false;//
 	}
 	
 	/**
