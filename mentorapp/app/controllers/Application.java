@@ -53,9 +53,9 @@ public class Application extends Controller {
     
     public static Result save(){
     	Form<User> boundForm = userForm.bindFromRequest();
-    	User product = boundForm.get();
-    	User.add(product, IDCOUNTER++);
-    	return ok(String.format("Saved product %s", product));
+    	User aUser = boundForm.get();
+    	User.add(aUser, IDCOUNTER++);
+    	return ok(String.format("Saved product %s", aUser));
     }
     //testing sync
     //testing again   
