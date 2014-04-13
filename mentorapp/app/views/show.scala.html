@@ -1,0 +1,16 @@
+@(userForm: Form[User])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Product form") {
+	<h1>Userform</h1>
+	@helper.form(action = routes.Users.save()) {
+		<fieldset>
+			<legend>User (@userForm("name").valueOr("New"))</legend>
+			@helper.inputText(userForm("ean"))
+			@helper.inputText(userForm("name"))
+			@helper.textarea(userForm("password"))
+		</fieldset>
+		<input type="submit" class="btn primary">
+	}
+}

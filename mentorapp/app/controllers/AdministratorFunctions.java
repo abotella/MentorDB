@@ -1,12 +1,12 @@
 package controllers;
+import play.mvc.Controller;
 import models.*;
-public class AdministratorFunctions
-{
+public class AdministratorFunctions extends Controller{
 	/**
 	 * Validates the user's login credentials
 	 * @param userN the username that the user entered
 	 * @param pass the password that the user entered
-	 * @retun whether or not the user entered valid information
+	 * @return whether or not the user entered valid information
 	 */
 	public boolean validate(String userN, String pass)
 	{

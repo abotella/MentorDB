@@ -4,6 +4,10 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+GET		/users/						controllers.Users.list()
+GET 	/users/new 					controllers.Users.showBlank()
+GET		/users/:ean					controllers.Users.show(ean: Long)
+POST	/users/						controllers.Users.save()
 GET		/homePage					controllers.Application.homePage()
 GET		/userSetup					controllers.Application.userSetup()
 GET		/serchCriteria				controllers.Application.searchCriteria()
