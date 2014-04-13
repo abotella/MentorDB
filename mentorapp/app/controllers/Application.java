@@ -3,8 +3,7 @@ package controllers;
 import play.mvc.Controller;
 import play.data.Form;
 import play.mvc.Result;
-import views.html.Index;
-import views.html.Page1;
+import views.html.*;
 
 public class Application extends Controller {
 
@@ -13,7 +12,7 @@ public class Application extends Controller {
      * @return The resulting home page. 
      */
     public static Result index() {
-      return ok(Index.render("Testing: This is the homepage."));
+      return ok(index.render("Testing: This is the homepage."));
     }
 
     
@@ -22,7 +21,7 @@ public class Application extends Controller {
      * @return The Page1.
      */
     public static Result page1() {
-      return ok(Page1.render("Welcome to Page 1."));
+      return ok(page1.render("Welcome to Page 1."));
     }
     //testing sync
     //testing again
