@@ -2,8 +2,8 @@ package controllers;
 
 import models.User;
 import play.mvc.Controller;
-import play.*;
-import play.data.Form;
+import play.data.*;
+//import play.data.Form;
 import play.mvc.Result;
 import views.html.*;
 
@@ -28,23 +28,23 @@ public class Application extends Controller {
     
     public static Result homePage(){
     	
-    	return ok(homePage.render("this is the home page"));
+    	return ok();
     }
     
     public static Result userSetup(){
-    	return ok(userSetup.render("user setup page"));
+    	return ok(userSetup.render(userForm));
     }
     
     public static Result searchCriteria(){
-    	return ok(searchCriteria.render("this is search criteria page"));
+    	return ok();
     }
     
     public static Result searchResults(){
-    	return ok(searchResults.render("search result "));
+    	return ok();
     	
     }
     public static Result viewUserProfile(){
-    	return ok(viewUserProfile.render("view user profile page"));
+    	return ok();
     }
     
     public static Result findUser(String aName){
