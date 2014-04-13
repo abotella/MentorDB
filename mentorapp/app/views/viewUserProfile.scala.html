@@ -1,7 +1,43 @@
+
 @(message: String)
 
 @main("viewUserProfile") {
-   <div class="container">
-     <p>@message</p> 
+   <div class="container" style="width: 50%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">User Name</div>
+			<div class="panel-body">
+				pull from DB name
+			</div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Current Employer</div>
+			<div class="panel-body">
+				pull from db employer
+			</div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Current Title</div>
+			<div class="panel-body">
+				pull from db title
+			</div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Employer History</div>
+			<div class="panel-body">
+				pull from db history
+			</div>
+		</div>
+	<div class="btn-group">
+ 		 <button type="button" class="btn btn-default">message</button>
+  		<button type="button" class="btn btn-default">Back to Results</button>
+ 		 
+	</div>
+
+	
+		
    </div>
 }
+
+
+	
+		
