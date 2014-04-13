@@ -1,5 +1,9 @@
 package models;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 41f05d1547a584964e57711e078e4cda5f08e9c8
 /**
  * Message class representing a message between 2 users.
  * @author Team Nacho BizNess
@@ -52,3 +56,8 @@ public class Message {
 	}
 	
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 41f05d1547a584964e57711e078e4cda5f08e9c8
