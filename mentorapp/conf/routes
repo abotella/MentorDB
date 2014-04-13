@@ -4,19 +4,15 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-<<<<<<< HEAD
-GET		/page1						controllers.Application.page1()
 GET		/users/						controllers.Users.list()
 GET 	/users/new 					controllers.Users.showBlank()
 GET		/users/:ean					controllers.Users.show(ean: Long)
 POST	/users/						controllers.Users.save()
-=======
 GET		/homePage					controllers.Application.homePage()
 GET		/userSetup					controllers.Application.userSetup()
 GET		/serchCriteria				controllers.Application.searchCriteria()
 GET		/searchResults				controllers.Application.searchResults()
 GET 	/viewUserProfile			controllers.Application.viewUserProfile()
->>>>>>> 190cf526c27da1f9993e0329f9132eb53a0e5115
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

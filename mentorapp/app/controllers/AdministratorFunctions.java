@@ -1,13 +1,7 @@
 package controllers;
-<<<<<<< HEAD
 import play.mvc.Controller;
 import models.*;
-public class AdministratorFunctions extends Controller
-=======
-import models.*;
-public class AdministratorFunctions
->>>>>>> 190cf526c27da1f9993e0329f9132eb53a0e5115
-{
+public class AdministratorFunctions extends Controller{
 	/**
 	 * Validates the user's login credentials
 	 * @param userN the username that the user entered
