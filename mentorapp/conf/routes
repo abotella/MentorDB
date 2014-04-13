@@ -4,7 +4,6 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET		/page1						controllers.Application.page1()
 GET		/homePage					controllers.Application.homePage()
 GET		/userSetup					controllers.Application.userSetup()
 GET		/serchCriteria				controllers.Application.searchCriteria()

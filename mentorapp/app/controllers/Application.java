@@ -21,9 +21,7 @@ public class Application extends Controller {
      * Returns page1.
      * @return The Page1.
      */
-    public static Result page1() {
-      return ok(Page1.render("Welcome to Page 1. We are awesome!!!! One step closer baby!!!"));
-    }
+   
     
     public static Result homePage(){
     	
