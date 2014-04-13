@@ -1,5 +1,5 @@
 package controllers;
-
+import models.*;
 public class AdministratorFunctions
 {
 	/**
@@ -17,10 +17,10 @@ public class AdministratorFunctions
 	 * Responds to a message that was sent to the administrator by a user
 	 * @param message the message that will be sent to the user
 	 */
-	public void respond(Message message)
-	{
+	//public void respond(Message message)
+	//{
 		
-	}
+	//}
 	
 	/**
 	 * Searches for a user profile based on a username
