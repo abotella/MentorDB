@@ -1,0 +1,17 @@
+@(users: Set[User])
+@main("Users catalogue") {
+	<h1>All users</h1>
+	<dl>
+		@for(user <- users) {
+		<dt>
+			<a href="@routes.Users.show(user.ean)">
+			@user.ean - @user.name
+		</a>
+		</dt>
+		<dd>@user.password</dd>
+	}
+	</dl>
+	
+	<a href="@routes.Users.showBlank()" class="btn">
+	<i class="icon-plus"></i> New user</a>
+}
