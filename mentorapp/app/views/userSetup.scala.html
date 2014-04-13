@@ -1,7 +1,21 @@
-@(message: String)
+@(UsersForm: Form[User])
+@import helper._
+@import helper.twitterBootstrap._
+
 
 @main("userSetup") {
-   <div class="container">
-     <p>@message</p> 
-   </div>
+	
+   <h1>user setup</h1>
+   @helper.From(action = routes.application.save()){
+   
+   	<fieldset>
+   		<legend>User (UserForm("user").valueOr("new"))</legend>
+		@helper.inputText(UserForm("user"))
+ 		@helper.inputText(UserForm("employer"))
+ 		@helper.inputText(UserForm("title"))
+		@helper.textarea(UserForm("History"))
+	 </fieldset>
+
+ <input type="submit" class="btn primary">
+}
 }

@@ -1,6 +1,6 @@
 package models;
 
-<<<<<<< HEAD
+
 /**
  * Message class representing a message between 2 users.
  * @author Team Nacho BizNess
@@ -52,8 +52,5 @@ public class Message {
 	}
 	
 }
-=======
-public class Message {
 
-}
->>>>>>> FETCH_HEAD
+
