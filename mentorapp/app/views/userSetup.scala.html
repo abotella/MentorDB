@@ -1,15 +1,15 @@
-@(UsersForm: Form[User])
+@(UserForm: Form[User])
 @import helper._
 @import helper.twitterBootstrap._
 
-
+<div style=" margin-left: 500px;">
 @main("userSetup") {
 	
    <h1>user setup</h1>
-   @helper.From(action = routes.application.save()){
+   @helper.form(action = routes.Application.save()){
    
    	<fieldset>
-   		<legend>User (UserForm("user").valueOr("new"))</legend>
+   		<legend>User (@UserForm("name").valueOr("new"))</legend>
 		@helper.inputText(UserForm("user"))
  		@helper.inputText(UserForm("employer"))
  		@helper.inputText(UserForm("title"))
@@ -17,5 +17,7 @@
 	 </fieldset>
 
  <input type="submit" class="btn primary">
+
 }
 }
+</div>
