@@ -31,9 +31,6 @@ public class Application extends Controller {
     	return ok(homePage.render("this is the home page"));
     }
     
-    public static Result userSetup(){
-    	return ok(userSetup.render("user setup page"));
-    }
     
     public static Result searchCriteria(){
     	return ok(searchCriteria.render("this is search criteria page"));
@@ -56,6 +53,9 @@ public class Application extends Controller {
     	User aUser = boundForm.get();
     	User.add(aUser, IDCOUNTER++);
     	return ok(String.format("Saved product %s", aUser));
+    }
+    public static Result userSetup(){
+    	return ok(userSetup.render(userForm));
     }
     //testing sync
     //testing again   
