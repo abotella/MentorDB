@@ -33,7 +33,6 @@ public class Message {
 
 
 	public String getSubject() {
-		//
 		return subject;
 	}
 
