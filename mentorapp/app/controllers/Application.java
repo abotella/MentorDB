@@ -3,7 +3,6 @@ package controllers;
 import models.User;
 import play.mvc.Controller;
 import play.data.*;
-//import play.data.Form;
 import play.mvc.Result;
 import views.html.*;
 
@@ -57,7 +56,4 @@ public class Application extends Controller {
     	User.add(aUser, IDCOUNTER++);
     	return ok(String.format("Saved product %s", aUser));
     }
-    //testing sync
-    //testing again   
-    //testing
 }
