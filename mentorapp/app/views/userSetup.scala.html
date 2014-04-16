@@ -1,14 +1,12 @@
 @(UserForm: Form[User])
 
-
-
 @import helper._
 @import helper.twitterBootstrap._
 
 <div style=" margin-left: 500px;">
 @main("userSetup") {
 	
-   <h1>user setup</h1>
+   <h1>User Profile</h1>
    @helper.form(action = routes.Application.save()){
    
    	<fieldset>
@@ -17,7 +15,7 @@
 		@helper.inputText(UserForm("user"))
  		@helper.inputText(UserForm("employer"))
  		@helper.inputText(UserForm("title"))
-		@helper.textarea(UserForm("History"))
+		@helper.textarea(UserForm("History"), 'cols -> 50)
 
 	 </fieldset>
 
