@@ -30,12 +30,9 @@ public class Application extends Controller {
     	return ok();
     }
     
-<<<<<<< HEAD
-=======
     public static Result userSetup(){
     	return ok(userSetup.render(userForm));
     }
->>>>>>> 2cbc846ddb56860177402be8f5ca2a9195b98f62
     
     public static Result searchCriteria(){
     	return ok();
@@ -59,13 +56,7 @@ public class Application extends Controller {
     	User.add(aUser, IDCOUNTER++);
     	return ok(String.format("Saved product %s", aUser));
     }
-<<<<<<< HEAD
-    public static Result userSetup(){
-    	return ok(userSetup.render(userForm));
-    }
     //testing sync
     //testing again   
     //testing
-=======
->>>>>>> 2cbc846ddb56860177402be8f5ca2a9195b98f62
 }
