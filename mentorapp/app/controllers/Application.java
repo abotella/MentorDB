@@ -27,7 +27,7 @@ public class Application extends Controller {
     
     public static Result homePage(){
     	
-    	return ok();
+    	return ok(homePage.render("Application homepage"));
     }
     
 
@@ -38,15 +38,15 @@ public class Application extends Controller {
 
     
     public static Result searchCriteria(){
-    	return ok();
+    	return ok(searchCriteria.render("Searchable criteria form page"));
     }
     
     public static Result searchResults(){
-    	return ok();
+    	return ok(searchResults.render("searchResults"));
     	
     }
     public static Result viewUserProfile(){
-    	return ok();
+    	return ok(viewUserProfile.render("view user profile page"));
     }
     
     public static Result findUser(String aName){
