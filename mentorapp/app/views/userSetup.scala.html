@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 @(UserForm: Form[User])
-=======
-@(userForm: Form[User])
 
->>>>>>> 2cbc846ddb56860177402be8f5ca2a9195b98f62
+
+
 @import helper._
 @import helper.twitterBootstrap._
 
@@ -14,19 +12,13 @@
    @helper.form(action = routes.Application.save()){
    
    	<fieldset>
-<<<<<<< HEAD
+
    		<legend>User (@UserForm("name").valueOr("new"))</legend>
 		@helper.inputText(UserForm("user"))
  		@helper.inputText(UserForm("employer"))
  		@helper.inputText(UserForm("title"))
 		@helper.textarea(UserForm("History"))
-=======
-   		<legend>User (@userForm("user").valueOr("new"))</legend>
-		@helper.inputText(userForm("user"))
- 		@helper.inputText(userForm("employer"))
- 		@helper.inputText(userForm("title"))
-		@helper.textarea(userForm("History"))
->>>>>>> 2cbc846ddb56860177402be8f5ca2a9195b98f62
+
 	 </fieldset>
 
  <input type="submit" class="btn primary">
