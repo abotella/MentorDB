@@ -4,11 +4,11 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-<<<<<<< HEAD
+
 POST	/users/						controllers.Application.save()
-=======
+
 POST	/							controllers.Application.save()
->>>>>>> 2cbc846ddb56860177402be8f5ca2a9195b98f62
+
 GET		/homePage					controllers.Application.homePage()
 GET		/userSetup					controllers.Application.userSetup()
 GET		/serchCriteria				controllers.Application.searchCriteria()
