@@ -59,17 +59,17 @@ public class Application extends Controller {
     	return TODO;
     }
     
-    public static Result userSetup(){
+    public static Result editProfile(){
     	Form<User> computerForm = form(User.class);
         return ok(
-            userSetup.render(computerForm)
+            editProfile.render(computerForm)
         );
     }
     
     public static Result save(){
     	Form<User> boundForm = userForm.bindFromRequest();
     	if(boundForm.hasErrors()) {
-            return badRequest(userSetup.render(boundForm));
+            return badRequest(editProfile.render(boundForm));
         }
     	User aUser = boundForm.get();
     	User.add(aUser, IDCOUNTER++);

@@ -10,7 +10,7 @@ POST	/users/						controllers.Application.save()
 POST	/							controllers.Application.save()
 
 GET		/homePage					controllers.Application.homePage()
-GET		/userSetup					controllers.Application.userSetup()
+GET		/editProfile				controllers.Application.editProfile()
 GET		/serchCriteria				controllers.Application.searchCriteria()
 GET		/searchResults				controllers.Application.searchResults()
 GET 	/viewUserProfile			controllers.Application.viewUserProfile()
