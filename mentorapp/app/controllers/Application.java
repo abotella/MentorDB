@@ -1,21 +1,33 @@
 package controllers;
 
-import models.User;
-import play.mvc.Controller;
+import java.util.ArrayList;
+import java.util.Set;
+
+import com.avaje.ebean.Ebean;
+
+import play.mvc.*;
 import play.data.*;
-import play.mvc.Result;
+import static play.data.Form.*;
 import views.html.*;
+import models.*;
+import models.User;
 
 public class Application extends Controller {
 	private static int IDCOUNTER = 0;
-	private static final Form<User> userForm = Form.form(User.class);
+	private static final Form<User> userForm = form(User.class);
 	
 	/**
-     * Returns the home page. 
-     * @return The resulting home page. 
+     * This result directly redirect to application home.
+     */
+    public static Result GO_HOME = redirect(
+        routes.Application.homePage()
+    );
+    
+    /**
+     * Handle default path requests, redirect to computers list
      */
     public static Result index() {
-      return ok(index.render("Testing: This is the homepage."));
+    	return GO_HOME;
     }
 
     
@@ -26,14 +38,7 @@ public class Application extends Controller {
    
     
     public static Result homePage(){
-    	
     	return ok(homePage.render("Application homepage"));
-    }
-    
-
-
-    public static Result userSetup(){
-    	return ok(userSetup.render(userForm));
     }
 
     
@@ -42,7 +47,8 @@ public class Application extends Controller {
     }
     
     public static Result searchResults(){
-    	return ok(searchResults.render("searchResults"));
+    	Set<User> tmp = User.findAll();
+    	return ok(searchResults.render(tmp));
     	
     }
     public static Result viewUserProfile(){
@@ -53,15 +59,21 @@ public class Application extends Controller {
     	return TODO;
     }
     
+    public static Result userSetup(){
+    	Form<User> computerForm = form(User.class);
+        return ok(
+            userSetup.render(computerForm)
+        );
+    }
+    
     public static Result save(){
     	Form<User> boundForm = userForm.bindFromRequest();
+    	if(boundForm.hasErrors()) {
+            return badRequest(userSetup.render(boundForm));
+        }
     	User aUser = boundForm.get();
     	User.add(aUser, IDCOUNTER++);
-    	return ok(String.format("Saved product %s", aUser));
+    	Ebean.save(User.users);
+        return redirect(routes.Application.searchResults());
     }
-
-    //testing sync
-    //testing again   
-    //testing
-
 }

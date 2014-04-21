@@ -6,6 +6,9 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.avaje.ebean.Ebean;
+
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
@@ -20,6 +23,8 @@ public class User extends Model {
 	public Long id;
 	
 	public Integer ean;
+	
+	@Constraints.Required
 	public String name;
 	public String password;
 	
@@ -65,13 +70,7 @@ public class User extends Model {
 		return new Finder<Long, User>(Long.class, User.class);
 	}
 
-	private static Set<User> users;
-	static {
-		users = new HashSet<User>();
-		users.add(new User("Ryan Honrado", "password123"));
-		users.add(new User("Michael Daniels", "password123"));
-		users.add(new User("Charlemagne Doles", "password123"));
-	}
+	public static Set<User> users = new HashSet<User>();
 
 	public static Set<User> findAll() {
 		return new HashSet<User>(users);
@@ -103,5 +102,9 @@ public class User extends Model {
 	public static void add(User user, Integer num) {
 		user.ean = num;
 		users.add(user);
+	}
+	
+	public void save(){
+		Ebean.save(users);
 	}
 }

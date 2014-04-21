@@ -5,7 +5,7 @@
 
 create table user (
   id                        bigint not null,
-  ean                       bigint,
+  ean                       integer,
   name                      varchar(255),
   password                  varchar(255),
   current_employer          varchar(255),

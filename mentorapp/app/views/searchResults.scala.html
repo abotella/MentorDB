@@ -1,4 +1,4 @@
-@(message: String)
+@(users: Set[User])
 
 @main("searchResults") {
    <div class="container" style="width:50%;">
@@ -6,22 +6,26 @@
 		  <!-- Default panel contents -->
  		 <div class="panel-heading">search results</div>
  		 
-
-	<!-- Table -->
-  <table class="table">
-    <tr>
-		<th> User Name </th>
-		<th> Employer </th>
-		<th> Title </th>
-		
-	</tr>
-	<tr>
-		<td><a href="#">db name</a></td>
-		<td>db </td>
-		<td>6</td>
-		
-	</tr>
-  </table>
-</div>
-   </div>
+	<dl>
+		@for(aUser <- users) {
+			<dd>@aUser.name</dd>
+			<dd>@aUser.currentEmployer</dd>
+			<dd>@aUser.currentTitle</dd>
+		}
+	</dl>
+#	<!-- Table -->
+#  <table class="table">
+#    <tr>
+#		<th> User Name </th>
+#		<th> Employer </th>
+#		<th> Title </th>
+#		
+#	</tr>
+#	<tr>
+#		<td><a href="#">db name</a></td>
+#		<td>db </td>
+#		<td>6</td>
+#		
+#	</tr>
+# </table>
 }
