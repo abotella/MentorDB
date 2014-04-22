@@ -7,12 +7,12 @@
 @main("editProfile") {
 	
    <h1>User Profile</h1>
-   @helper.form(action = routes.Application.save()){
+   @helper.form(action = routes.UserApplication.save()){
    
    	<fieldset>
 
-   		<legend>User (@UserForm("name").valueOr("new"))</legend>
-		@helper.inputText(UserForm("name"), '_label -> "user name")
+   		<legend>User (@UserForm("userName").valueOr("new"))</legend>
+		@helper.inputText(UserForm("userName"), '_label -> "user name")
  		@helper.inputText(UserForm("currentEmployer"),'_label -> "employer")
  		@helper.inputText(UserForm("currentTitle"),'_label -> "title")
 		@helper.textarea(UserForm("workExperience"),'_label -> "history")
@@ -21,7 +21,7 @@
 
  <div class="action">
  	<input type="submit" value="submit" class="btn-primary"> or
- 		<a href="@routes.Application.editProfile()" class="btn">Cancel</a> 
+ 		<a href="@routes.UserApplication.editProfile()" class="btn">Cancel</a> 
 </div>
 }
 }

@@ -1,4 +1,4 @@
-@(users: Set[User])
+@(users: List[User])
 
 @main("searchResults") {
    <div class="container" style="width:50%;">
@@ -8,7 +8,7 @@
  		 
 	<dl>
 		@for(aUser <- users) {
-			<dd>@aUser.name</dd>
+			<dd>@aUser.userName</dd>
 			<dd>@aUser.currentEmployer</dd>
 			<dd>@aUser.currentTitle</dd>
 		}

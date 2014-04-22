@@ -32,12 +32,11 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="@("active".when(page == "Home"))"><a href="@routes.Application.index()">Home</a></li>
-          <li class="@("active".when(page == "homePage"))"><a href="@routes.Application.homePage()">appHome</a></li>
-          <li class="@("active".when(page == "editProfile"))"><a href="@routes.Application.editProfile()">editProfile</a></li>
-          <li class="@("active".when(page == "searchCriteria"))"><a href="@routes.Application.searchCriteria()">searchCriteria</a></li>
-          <li class="@("active".when(page == "searchResults"))"><a href="@routes.Application.searchResults()">searchResult</a></li>
-          <li class="@("active".when(page == "viewUserProfile"))"><a href="@routes.Application.viewUserProfile()">view user</a></li>
+          <li class="@("active".when(page == "Home"))"><a href="@routes.UserApplication.index()">Home</a></li>
+          <li class="@("active".when(page == "editProfile"))"><a href="@routes.UserApplication.editProfile()">editProfile</a></li>
+          <li class="@("active".when(page == "searchCriteria"))"><a href="@routes.UserApplication.searchCriteria()">searchCriteria</a></li>
+          <li class="@("active".when(page == "searchResults"))"><a href="@routes.UserApplication.searchResults()">searchResult</a></li>
+          <li class="@("active".when(page == "viewUserProfile"))"><a href="@routes.UserApplication.viewUserProfile()">view user</a></li>
          
         </ul>
       </div>

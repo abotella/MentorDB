@@ -5,12 +5,11 @@
 
 create table user (
   id                        bigint not null,
-  ean                       integer,
-  name                      varchar(255),
+  user_name                 varchar(255),
   password                  varchar(255),
+  display_name              varchar(255),
   current_employer          varchar(255),
   current_title             varchar(255),
-  position                  varchar(255),
   work_experience           varchar(255),
   is_mentor                 boolean,
   is_mentee                 boolean,

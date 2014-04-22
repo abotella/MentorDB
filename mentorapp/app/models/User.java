@@ -22,15 +22,13 @@ public class User extends Model {
 	@Id
 	public Long id;
 	
-	public Integer ean;
-	
 	@Constraints.Required
-	public String name;
+	public String userName;
 	public String password;
 	
+	public String displayName;
 	public String currentEmployer;
 	public String currentTitle;
-	public String position;
 	public String workExperience;
 	public boolean isMentor;
 	public boolean isMentee;
@@ -44,7 +42,7 @@ public class User extends Model {
 	 *            user password
 	 */
 	public User(String aName, String aPassword) {
-		name = aName;
+		userName = aName;
 		password = aPassword;
 	}
 
@@ -61,34 +59,16 @@ public class User extends Model {
 		return false;
 	}
 
-	/**
-	 * Get users in database
-	 * 
-	 * @return list of users
-	 */
-	public static Finder<Long, User> find() {
-		return new Finder<Long, User>(Long.class, User.class);
-	}
-
 	public static Set<User> users = new HashSet<User>();
 
 	public static Set<User> findAll() {
 		return new HashSet<User>(users);
 	}
-	
-	public static User findByEan(Integer ean) {
-		for (User candidate : users) {
-			if (candidate.ean == (ean)) {
-				return candidate;
-			}
-		}
-		return null;
-	}
 
 	public static Set<User> findByName(String term) {
 		final Set<User> results = new HashSet<User>();
 		for (User candidate : users) {
-			if (candidate.name.toLowerCase().contains(term.toLowerCase())) {
+			if (candidate.userName.toLowerCase().contains(term.toLowerCase())) {
 				results.add(candidate);
 			}
 		}
@@ -99,12 +79,7 @@ public class User extends Model {
 		return users.remove(user);
 	}
 
-	public static void add(User user, Integer num) {
-		user.ean = num;
+	public static void add(User user) {
 		users.add(user);
-	}
-	
-	public void save(){
-		Ebean.save(users);
 	}
 }
