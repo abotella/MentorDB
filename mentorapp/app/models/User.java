@@ -36,10 +36,8 @@ public class User extends Model {
 	/**
 	 * Create a new user
 	 * 
-	 * @param aName
-	 *            user account name
-	 * @param aPassword
-	 *            user password
+	 * @param aName user account name
+	 * @param aPassword user password
 	 */
 	public User(String aName, String aPassword) {
 		userName = aName;
@@ -49,37 +47,30 @@ public class User extends Model {
 	/**
 	 * Validates log in.
 	 * 
-	 * @param name
-	 *            name of user
-	 * @param password
-	 *            user's password
+	 * @param name name of user
+	 * @param password user's password
 	 * @return true if user name and password are correct
 	 */
 	public boolean validateUser(String name, String password) {
 		return false;
 	}
 
-	public static Set<User> users = new HashSet<User>();
-
-	public static Set<User> findAll() {
-		return new HashSet<User>(users);
-	}
-
-	public static Set<User> findByName(String term) {
-		final Set<User> results = new HashSet<User>();
-		for (User candidate : users) {
-			if (candidate.userName.toLowerCase().contains(term.toLowerCase())) {
-				results.add(candidate);
-			}
-		}
-		return results;
-	}
-
+	/**
+	 * Removes user from database
+	 * @param user
+	 * @return true if removed, false if not removed
+	 */
 	public static boolean remove(User user) {
 		return users.remove(user);
 	}
 
+	/**
+	 * Adds user to the database
+	 * @param user a user
+	 */
 	public static void add(User user) {
 		users.add(user);
 	}
+	
+	public static Set<User> users = new HashSet<User>();
 }
