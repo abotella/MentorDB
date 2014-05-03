@@ -11,6 +11,8 @@ create table user (
   current_employer          varchar(255),
   current_title             varchar(255),
   work_experience           varchar(255),
+  mentors                   varchar(255),
+  mentees                   varchar(255),
   is_mentor                 boolean,
   is_mentee                 boolean,
   constraint pk_user primary key (id))

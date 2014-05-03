@@ -1,0 +1,70 @@
+@(users: List[User])
+
+@main("userProfile") {
+
+<div class="container" style="width: 50%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">User Name</div>
+			<div class="panel-body">
+				pull from DB name
+			</div>
+		</div>
+</div>
+   <div class="container" style="width:50%;">
+    <div class="panel panel-primary">
+		  <!-- Default panel contents -->
+ 		 <div class="panel-heading">Mentors</div>
+ 		 
+		
+	<!-- Table -->
+  <table class="table">
+    <tr>
+		<th> User Name </th>
+		<th> Employer </th>
+		<th> Title </th>
+		
+	</tr>
+	@for(aUser <- users) {
+		
+	<tr>
+		<td><a href="#"><dd>@aUser.userName</dd></a></td>
+		<td><dd>@aUser.currentEmployer</dd></td>
+		<td><dd>@aUser.currentTitle</dd></td>
+		
+	</tr>
+	}
+ </table>
+ </div>
+ </div>
+ <div class="container" style="width:50%;">
+    <div class="panel panel-primary">
+		  <!-- Default panel contents -->
+ 		 <div class="panel-heading">Mentee's</div>
+ 		 
+		
+	<!-- Table -->
+  <table class="table">
+    <tr>
+		<th> User Name </th>
+		<th> Employer </th>
+		<th> Title </th>
+		
+	</tr>
+	@for(aUser <- users) {
+		
+	<tr>
+		<td><a href="#"><dd>@aUser.userName</dd></a></td>
+		<td><dd>@aUser.currentEmployer</dd></td>
+		<td><dd>@aUser.currentTitle</dd></td>
+		
+	</tr>
+	}
+ </table>
+ </div>
+ <div class="btn-group">
+ 		 <button type="button" class="btn btn-default"><a href="/searchCriteria">search</a></button>
+  		<button type="button" class="btn btn-default"><a href="/editProfile">edit profile</a></button>
+ 		 
+	</div>
+ </div>
+}

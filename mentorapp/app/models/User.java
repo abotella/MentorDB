@@ -1,10 +1,14 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.avaje.ebean.Ebean;
 
@@ -30,8 +34,11 @@ public class User extends Model {
 	public String currentEmployer;
 	public String currentTitle;
 	public String workExperience;
+	public String mentors;
+	public String mentees;
 	public boolean isMentor;
 	public boolean isMentee;
+	
 	
 	/**
 	 * Create a new user
@@ -42,17 +49,6 @@ public class User extends Model {
 	public User(String aName, String aPassword) {
 		userName = aName;
 		password = aPassword;
-	}
-
-	/**
-	 * Validates log in.
-	 * 
-	 * @param name name of user
-	 * @param password user's password
-	 * @return true if user name and password are correct
-	 */
-	public boolean validateUser(String name, String password) {
-		return false;
 	}
 
 	/**
@@ -72,5 +68,39 @@ public class User extends Model {
 		users.add(user);
 	}
 	
+	/**
+	 * Checks if the user has the given criteria
+	 * @param criteria a criteria
+	 * @return true if criteria is found, false if not
+	 */
+	public boolean contains (String criteria){
+		if (criteria.equals("")){
+			return false;
+		}
+		else if (criteria.toLowerCase().equals(currentTitle) || criteria.toLowerCase().equals(currentEmployer)){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Adds a mentor to the mentors string list
+	 * @param aMentor the mentor
+	 */
+	public void addMentor (String aMentor){
+		mentors = mentors + aMentor + ";";
+	}
+	
+	/**
+	 * Adds a mentee to the mentees string list
+	 * @param aMentee the mentee
+	 */
+	public void addMentee (String aMentee){
+		mentees = mentees + aMentee + ";";
+	}
+	
+	public boolean removeMentor (String aMentor){
+		return false;
+	}
 	public static Set<User> users = new HashSet<User>();
 }

@@ -12,12 +12,14 @@ import com.avaje.ebean.Ebean;
 import play.mvc.*;
 import play.data.*;
 import play.db.ebean.Model.Finder;
+import scala.collection.parallel.ParIterableLike.Find;
 import static play.data.Form.*;
 import views.html.*;
 import models.*;
 
 public class UserApplication extends Controller {
 	private static final Form<User> userForm = form(User.class);
+	private static final Form<User> searchForm = form(User.class);
 	
     /**
      * Index page
@@ -31,7 +33,8 @@ public class UserApplication extends Controller {
      * @return SearchCriteria page loaded
      */
     public static Result searchCriteria(){
-    	return ok(searchCriteria.render("Searchable criteria form page"));
+    	Form<User> aForm = form(User.class);
+    	return ok(searchCriteria.render(aForm));
     }
     
     /**
@@ -39,9 +42,12 @@ public class UserApplication extends Controller {
      * @return SearchResults page loaded
      */
     public static Result searchResults(){
-    	List<User> tmp = find().findList();
-    	return ok(searchResults.render(tmp));
+    	String t = form().bindFromRequest().get("currentTitle");
+    	String e = form().bindFromRequest().get("currentEmployer");
+    	List<User> titles = findByCriteria(t);
+    	List<User> employers = findByCriteria(e);
     	
+    	return ok(searchResults.render(titles,employers));
     }
     
     /**
@@ -73,9 +79,9 @@ public class UserApplication extends Controller {
     	User aUser = boundForm.get();
     	User.add(aUser);
     	Ebean.save(User.users);
-        return redirect(routes.UserApplication.searchResults());
+        return redirect(routes.UserApplication.editProfile());
     }
-    
+ 
     /**
      * Finds all users in the database
      * @return list of users
@@ -89,13 +95,38 @@ public class UserApplication extends Controller {
      * @param term
      * @return a user name profile information
      */
-    public static Set<User> findByName(String term) {
-		final Set<User> results = new HashSet<User>();
-		for (User candidate : User.users) {
+    public static User findByName(String term) {
+		final List<User> results = find().findList();
+		for (User candidate : results) {
 			if (candidate.userName.toLowerCase().contains(term.toLowerCase())) {
-				results.add(candidate);
+				return candidate;
 			}
 		}
-		return results;
+		return null;
 	}
+    
+    /**
+     * Find potential candidates based on criteria selected
+     * @param someCriteria criteria selected
+     * @return candidates list of candidates that contains at least one criteria
+     */
+    public static List<User> findByCriteria(String someCriteria) {
+    	List<User> candidates = new ArrayList<User>();
+    	List<User> list = find().findList();
+    	
+    	for (User aUser : list) {
+			if (aUser.contains(someCriteria)){
+				candidates.add(aUser);
+			}
+		}
+
+    	return candidates;
+    }
+    
+    public static Result userProfile(){
+    	List<User> tmp = find().findList();
+    	return ok(userProfile.render(tmp));
+    }
+    
+    public static Finder<Long, User> aFind = new Finder<Long, User>(Long.class, User.class);
 }

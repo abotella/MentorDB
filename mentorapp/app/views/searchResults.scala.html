@@ -1,4 +1,4 @@
-@(users: List[User])
+@(titles: List[User], employers: List[User])
 
 @main("searchResults") {
    <div class="container" style="width:50%;">
@@ -7,10 +7,12 @@
  		 <div class="panel-heading">search results</div>
  		 
 	<dl>
-		@for(aUser <- users) {
-			<dd>@aUser.userName</dd>
-			<dd>@aUser.currentEmployer</dd>
-			<dd>@aUser.currentTitle</dd>
+		@for(aUser <- titles) {
+			<p>@aUser.currentTitle</p>
+		}
+
+		@for(aUser <- employers) {
+			<p>@aUser.currentTitle</p>
 		}
 	</dl>
 #	<!-- Table -->

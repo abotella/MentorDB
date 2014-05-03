@@ -9,6 +9,7 @@ GET		/editProfile				controllers.UserApplication.editProfile()
 GET		/serchCriteria				controllers.UserApplication.searchCriteria()
 GET		/searchResults				controllers.UserApplication.searchResults()
 GET 	/viewUserProfile			controllers.UserApplication.viewUserProfile()
+GET 	/userProfile				controllers.UserApplication.userProfile()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
