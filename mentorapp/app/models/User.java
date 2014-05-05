@@ -15,6 +15,7 @@ import com.avaje.ebean.Ebean;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
+import controllers.*;
 
 /**
  * The purpose of this class is to create users for WebApp.
@@ -26,10 +27,13 @@ public class User extends Model {
 	@Id
 	public Long id;
 	
-	@Constraints.Required
+	@Constraints.Required (message = "Username is required!")
 	public String userName;
+	
+	@Constraints.Required (message = "Password is required!")
 	public String password;
 	
+	@Constraints.Required (message = "Display Name is required!")
 	public String displayName;
 	public String currentEmployer;
 	public String currentTitle;
@@ -38,7 +42,6 @@ public class User extends Model {
 	public String mentees;
 	public boolean isMentor;
 	public boolean isMentee;
-	
 	
 	/**
 	 * Create a new user
@@ -52,35 +55,11 @@ public class User extends Model {
 	}
 
 	/**
-	 * Removes user from database
-	 * @param user
-	 * @return true if removed, false if not removed
-	 */
-	public static boolean remove(User user) {
-		return users.remove(user);
-	}
-
-	/**
 	 * Adds user to the database
 	 * @param user a user
 	 */
 	public static void add(User user) {
 		users.add(user);
-	}
-	
-	/**
-	 * Checks if the user has the given criteria
-	 * @param criteria a criteria
-	 * @return true if criteria is found, false if not
-	 */
-	public boolean contains (String criteria){
-		if (criteria.equals("")){
-			return false;
-		}
-		else if (criteria.toLowerCase().equals(currentTitle) || criteria.toLowerCase().equals(currentEmployer)){
-			return true;
-		}
-		return false;
 	}
 	
 	/**
@@ -101,6 +80,28 @@ public class User extends Model {
 	
 	public boolean removeMentor (String aMentor){
 		return false;
+	}
+	
+	public static void create(User user) {
+		user.password = Session.encryptPassword(user.password);
+		user.save();
+	}
+	
+	public static void delete(Long id) {
+		UserApplication.find().ref(id).delete();
+	}
+
+	public void update(User user) {
+		user.password = Session.encryptPassword(user.password);
+		user.update(this.id);
+	}
+	
+	public static User authenticate(String username, String password) {
+		User user = UserApplication.find().where().eq("userName", username).findUnique();
+		if (Session.checkPassword(password, user.password))
+			return user;
+		else
+			return null;
 	}
 	public static Set<User> users = new HashSet<User>();
 }

@@ -1,0 +1,19 @@
+@(userForm: Form[User], user: User)
+
+@import helper._
+
+@main("edit") {
+
+	<div class="container">
+	<h1>Edit Profile</h1>
+	@form(routes.UserApplication.update(user.id)) {
+	    @inputText(userForm("displayName"), '_label -> "Name", '_showConstraints -> false, 'class -> "form-control") 
+		@inputText(userForm("userName"), '_label -> "Username", '_showConstraints -> false, 'class -> "form-control")
+		@inputText(userForm("currentEmployer"), '_label -> "Current Employer", '_showConstraints -> false, 'class -> "form-control")
+		@inputText(userForm("currentTitle"), '_label -> "Current Title", '_showConstraints -> false, 'class -> "form-control")
+		@inputText(userForm("workExperience"), '_label -> "Work Experience", '_showConstraints -> false, 'class -> "form-control")
+	  	@inputPassword(userForm("password"), '_label -> "Password", '_showConstraints -> false, 'class -> "form-control")
+	  	<input type="submit" class="btn btn-primary" value="Update Profile">
+	}
+	</div>
+}

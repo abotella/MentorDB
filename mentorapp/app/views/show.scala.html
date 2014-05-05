@@ -1,0 +1,46 @@
+@(flash: String, users: User, isSession: Boolean)
+
+@import helper._
+
+@main("show") {
+	<div class="container">
+	@if(flash!=null) {
+		<div class="alert alert-success">
+			@flash
+		</div>
+	}
+
+	<h1 class="floatLeft">@users.userName</h1>
+	
+	<p>
+	  <b>Name:</b>
+	  @users.displayName
+	</p>
+
+	<p>
+	  <b>Username:</b>
+	  @users.userName 
+	</p>
+
+	<p>
+	  <b>Current Employer:</b>
+	  @users.currentEmployer
+	</p>
+
+	<p>
+	  <b>Current Title:</b>
+	  @users.currentTitle
+	</p>
+
+	<p>
+	  <b>Work Experience:</b>
+	  @users.workExperience
+	</p>
+	
+	@if(isSession) {
+		<a href="@routes.UserApplication.edit(users.id)"><button type="button" class="btn btn-primary">Edit</button></a>
+	} 
+	</div>
+	
+	
+}

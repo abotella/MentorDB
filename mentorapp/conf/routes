@@ -3,13 +3,25 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.UserApplication.index()
+GET     /                           controllers.UserApplication.index(someUser: String ?= "")
+
+# Application
 POST	/users						controllers.UserApplication.save()
 GET		/editProfile				controllers.UserApplication.editProfile()
 GET		/serchCriteria				controllers.UserApplication.searchCriteria()
 GET		/searchResults				controllers.UserApplication.searchResults()
-GET 	/viewUserProfile			controllers.UserApplication.viewUserProfile()
-GET 	/userProfile				controllers.UserApplication.userProfile()
+GET 	/viewUserProfile/:id		controllers.UserApplication.viewUserProfile(id: Long)
+GET 	/userProfile				controllers.UserApplication.userProfile(text: String ?= "")
+GET		/users/:id/edit				controllers.UserApplication.edit(id: Long)
+GET		/users/:id					controllers.UserApplication.show(id: Long)
+POST	/users/:id/edit				controllers.UserApplication.update(id: Long)
+
+GET		/register					controllers.UserApplication.register()
+POST	/register					controllers.UserApplication.newUser()
+
+GET		/login						controllers.Session.login()
+POST 	/login						controllers.Session.authenticate()
+GET		/logout						controllers.Session.logout()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

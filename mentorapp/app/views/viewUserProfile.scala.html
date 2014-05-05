@@ -1,43 +1,57 @@
+@(user: User, isSession: Boolean)
 
-@(message: String)
+@import helper._
 
 @main("viewUserProfile") {
-   <div class="container" style="width: 50%;">
-		<div class="panel panel-primary">
-			<div class="panel-heading">User Name</div>
-			<div class="panel-body">
-				pull from DB name
-			</div>
-		</div>
-		<div class="panel panel-primary">
-			<div class="panel-heading">Current Employer</div>
-			<div class="panel-body">
-				pull from db employer
-			</div>
-		</div>
-		<div class="panel panel-primary">
-			<div class="panel-heading">Current Title</div>
-			<div class="panel-body">
-				pull from db title
-			</div>
-		</div>
-		<div class="panel panel-primary">
-			<div class="panel-heading">Employer History</div>
-			<div class="panel-body">
-				pull from db history
-			</div>
-		</div>
+
+<div class="container">
+	<h1 class="floatLeft">@user.displayName</h1>
+	
+	<p>
+	  <b>Name:</b>
+	  @user.displayName
+	</p>
+
+	<p>
+	  <b>Username:</b>
+	  @user.userName 
+	</p>
+
+	<p>
+	  <b>Current Employer:</b>
+	  @user.currentEmployer
+	</p>
+
+	<p>
+	  <b>Current Title:</b>
+	  @user.currentTitle
+	</p>
+
+	<p>
+	  <b>Work Experience:</b>
+	  @user.workExperience
+	</p>
+	
+	@if(!isSession){
+	
 	<div class="btn-group">
- 		 <button type="button" class="btn btn-default">message</button>
-  		<button type="button" class="btn btn-default">Back to Results</button>
- 		 
-	</div>
-
-	
+  		<button type="button" class="btn btn-primary">Action</button>
+  		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    		<span class="caret"></span>
+    		<span class="sr-only">Toggle Dropdown</span>
+  		</button>
+  	<ul class="dropdown-menu" role="menu">
+    	<li><a href="@routes.UserApplication.index(user.userName)"><span class="glyphicon glyphicon-plus"></span>Request mentorship</a></li>
+    	<li><a href="#"><span class="glyphicon glyphicon-envelope"></span>Send Message</a></li>
+      	<li class="divider"></li>
+    	<li><a href="@routes.UserApplication.searchCriteria()">Back to Search</a></li>
+  	</ul>
+</div>
 		
-   </div>
+	}
+	
+	@if(isSession){
+		<a href="@routes.UserApplication.edit(user.id)"><button type="button" class="btn btn-primary">Edit</button></a>
+	}
+<div>
 }
-
-
-	
-		

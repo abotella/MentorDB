@@ -1,7 +1,24 @@
-@(message: String)
+@(page: String, flash: String)
 
-@main("Home") {
-   <div class="container">
-     <p>@message</p> 
-   </div>
+@main(page) {
+<div class="container">
+@if(flash!=null) {
+		<div class="alert alert-block alert-info">
+			@flash
+		</div>
+	}
+  <!-- Jumbotron
+  ================================================== -->
+  <div class="jumbotron">
+    <h1>Welcome to Mentor Web</h1>
+    <p class="lead">
+      <i>The first active community that strives to address the needs of working professionals...</i>
+    </p>
+    @if(session().isEmpty()) {	
+    <a href="@routes.UserApplication.register()"><button class="btn btn-success btn-lg">Sign up today</button></a>
+	}
+	@if(!session().isEmpty()) {
+		<a href="@routes.UserApplication.editProfile()"><button class="btn btn-success btn-lg">Get Started</button></a>
+		
+	}
 }

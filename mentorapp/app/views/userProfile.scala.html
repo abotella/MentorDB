@@ -1,13 +1,10 @@
-@(users: List[User])
+@(flash: String, someUser: User, mentors: List[User], mentees: List[User])
 
 @main("userProfile") {
 
 <div class="container" style="width: 50%;">
 		<div class="panel panel-primary">
-			<div class="panel-heading">User Name</div>
-			<div class="panel-body">
-				pull from DB name
-			</div>
+			<div class="panel-heading">@someUser.displayName</div>
 		</div>
 </div>
    <div class="container" style="width:50%;">
@@ -24,15 +21,13 @@
 		<th> Title </th>
 		
 	</tr>
-	@for(aUser <- users) {
-		
-	<tr>
-		<td><a href="#"><dd>@aUser.userName</dd></a></td>
-		<td><dd>@aUser.currentEmployer</dd></td>
-		<td><dd>@aUser.currentTitle</dd></td>
-		
-	</tr>
-	}
+		@for(aUser <- mentors) {
+		<tr>
+		<td>@aUser.displayName</td>
+		<td>@aUser.currentEmployer</td>
+		<td>@aUser.currentTitle <br\></td>
+		</tr>
+		}
  </table>
  </div>
  </div>
@@ -50,20 +45,20 @@
 		<th> Title </th>
 		
 	</tr>
-	@for(aUser <- users) {
-		
-	<tr>
-		<td><a href="#"><dd>@aUser.userName</dd></a></td>
-		<td><dd>@aUser.currentEmployer</dd></td>
-		<td><dd>@aUser.currentTitle</dd></td>
-		
+
 	</tr>
-	}
+		@for(aUser <- mentees) {
+		<tr>
+		<td>@aUser.displayName</td>
+		<td>@aUser.currentEmployer</td>
+		<td>@aUser.currentTitle <br\></td>
+		</tr>
+		}
  </table>
  </div>
  <div class="btn-group">
- 		 <button type="button" class="btn btn-default"><a href="/searchCriteria">search</a></button>
-  		<button type="button" class="btn btn-default"><a href="/editProfile">edit profile</a></button>
+ 		 <a  href="@routes.UserApplication.searchCriteria()"><button type="button" class="btn btn-primary">search</button></a>
+  		 <a href="@routes.UserApplication.edit(someUser.id)"><button type="button" class="btn btn-primary">Edit</button></a>
  		 
 	</div>
  </div>

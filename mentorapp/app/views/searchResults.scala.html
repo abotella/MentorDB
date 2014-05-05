@@ -1,33 +1,77 @@
-@(titles: List[User], employers: List[User])
-
+@(perfect: List[User], titles: List[User], employers: List[User])
 @main("searchResults") {
    <div class="container" style="width:50%;">
     <div class="panel panel-primary">
 		  <!-- Default panel contents -->
- 		 <div class="panel-heading">search results</div>
- 		 
-	<dl>
-		@for(aUser <- titles) {
-			<p>@aUser.currentTitle</p>
-		}
-
-		@for(aUser <- employers) {
-			<p>@aUser.currentTitle</p>
-		}
+ 		 <div class="panel-heading">perfect match</div>
+ 		
+		
+		
 	</dl>
-#	<!-- Table -->
-#  <table class="table">
-#    <tr>
-#		<th> User Name </th>
-#		<th> Employer </th>
-#		<th> Title </th>
-#		
-#	</tr>
-#	<tr>
-#		<td><a href="#">db name</a></td>
-#		<td>db </td>
-#		<td>6</td>
-#		
-#	</tr>
-# </table>
+	<!-- Table -->
+ <table class="table">
+    <tr>
+		<th> User Name </th>
+		<th> Title </th>
+		<th> Employer </th>
+		
+	</tr>
+	@for(aUser <- perfect) {
+	<tr>
+		<td><a href="@routes.UserApplication.viewUserProfile(aUser.id)">@aUser.displayName</a></td>
+		<td>@aUser.currentTitle</td>
+		<td>@aUser.currentEmployer</td>
+		
+	</tr>
+	}
+ </table>
+ </div>
+ </div>
+  <div class="container" style="width:50%;">
+    <div class="panel panel-primary">
+		  <!-- Default panel contents -->
+ 		 <div class="panel-heading">matches title</div>
+ <!-- Table -->
+ <table class="table">
+    <tr>
+		<th> User Name </th>
+		<th> Title </th>
+		<th> Employer </th>
+		
+	</tr>
+	@for(aUser <- titles) {
+	<tr>
+		<td><a href="@routes.UserApplication.viewUserProfile(aUser.id)">@aUser.displayName</a></td>
+		<td>@aUser.currentTitle</td>
+		<td>@aUser.currentEmployer</td>
+		
+	</tr>
+	}
+ </table>
+ </div>
+ </div>
+  <div class="container" style="width:50%;">
+    <div class="panel panel-primary">
+		  <!-- Default panel contents -->
+ 		 <div class="panel-heading">matches employer</div>
+ <!-- Table -->
+ <table class="table">
+    <tr>
+		<th> User Name </th>
+		<th> Title </th>
+		<th> Employer </th>
+		
+	</tr>
+	@for(aUser <- employers) {
+	<tr>
+		<td><a href="@routes.UserApplication.viewUserProfile(aUser.id)">@aUser.displayName</a></td>
+		<td>@aUser.currentTitle</td>
+		<td>@aUser.currentEmployer</td>
+		
+	</tr>
+	}
+ </table>
+ </div>
+     	<a href="@routes.UserApplication.searchCriteria()">Back to Search</a>
+ </div>
 }

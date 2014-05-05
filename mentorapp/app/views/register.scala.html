@@ -1,0 +1,24 @@
+@(flash: String, userForm: Form[User])
+
+@import helper._
+
+@main("Register") {
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Register for Mentor Web</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="http://www.govacuum.us/blog/wp-content/uploads/2013/01/Adorable-pets-need-GoVacuum-Pet-Edition-Sebos-to-clean-up-after-them.jpeg"
+                    alt="">
+                <fieldset>
+                    @helper.form(routes.UserApplication.newUser(), 'class -> "form-horizontal", 'role -> "form") {
+                    @inputText(userForm("displayName"), '_label -> "Name", '_showConstraints -> false, 'class -> "form-control") 
+                    @inputText(userForm("userName"), '_label -> "Username", '_showConstraints -> false, 'class -> "form-control")
+                    @inputPassword(userForm("password"), '_label -> "Password", '_showConstraints -> false, 'class -> "form-control")
+
+                    <input type="submit" class="btn btn-lg btn-block" value="Register">
+                </fieldset>
+                }
+    </div>
+</div>
+}
